@@ -7,6 +7,7 @@ import itemView from './item';
 export default (state, prev, send) => html`
   <main>
     <h1>title: ${state.title}</h1>
+    <h2>${state.clock}</h2>
     <input
       value=${state.title}
       oninput=${ ev => { send('updateTitle', ev.target.value) } }/>

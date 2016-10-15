@@ -1,6 +1,7 @@
 export default {
   state: {
     title: 'untitled',
+    clock: new Date(),
     items: [
       { desc:'task 1', done:false },
       { desc:'task 2', done:true }
@@ -9,6 +10,9 @@ export default {
   reducers: {
     updateTitle(title, state) {
       return { ...state, title };
+    },
+    updateClock(clock, state) {
+      return { ...state, clock };
     },
     addItem(itemDesc, state) {
       const items = state.items.concat([{desc:itemDesc, done:false}]);
@@ -35,6 +39,21 @@ export default {
         return (idx === o.itemIndex) ? { ...item, desc:o.desc } : item;
       });
       return { ...state, items };
-    }
+    },
+    effects: {
+      fetch: (data, state, send, done) => {
+        // TODO not done yet
+      }
+    },
+    subscriptions: [ // TODO not working
+      (send, done) => {
+        console.log('1...');
+        setInterval(_ => {
+          console.log('2...');
+          send('updateClock', new Date());
+          done();
+        }, 1000);
+      }
+    ]
   }
 };
