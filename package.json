@@ -1,0 +1,24 @@
+{
+  "name": "tdl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/main.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-stage-0": "^6.16.0",
+    "choo": "^3.3.0",
+    "webpack": "^1.13.2"
+  },
+  "babel": {
+    "presets": [
+      "es2015", "stage-0"
+    ]
+  }
+}
