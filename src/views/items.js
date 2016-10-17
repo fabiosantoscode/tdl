@@ -1,10 +1,9 @@
-import html from 'choo/html';
+const html = require('choo/html');
 
-import itemView from './item';
+const itemView = require('./item');
 
 
-
-export default (state, prev, send) => html`
+module.exports = (state, prev, send) => html`
   <main>
     <h1>title: ${state.title}</h1>
     <h2>${state.clock}</h2>

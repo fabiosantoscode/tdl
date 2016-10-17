@@ -1,8 +1,8 @@
-import choo from 'choo';
+var choo = require('choo');
 
-import model from './model';
-import itemsView from './views/items';
-import itemEditView from './views/itemEdit';
+var model = require('./model');
+var itemsView = require('./views/items');
+var itemEditView = require('./views/itemEdit');
 
 
 
@@ -26,7 +26,10 @@ app.router((route) => [
   route('/tasks/:index', itemEditView)
 ]);
 
-const tree = app.start();
-document.body.appendChild(tree);
+if (typeof window !== 'undefined') {
+  app.start('#root');
+} else {
+  module.exports = app;
+}
 
 //window.app = app; console.log(app.toString('/')); // TODO server-side rendering

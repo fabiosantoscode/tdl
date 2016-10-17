@@ -1,6 +1,6 @@
-import html from 'choo/html';
+const html = require('choo/html')
 
-export default (state, prev, send) => {
+module.exports = (state, prev, send) => {
   console.log(state);
   const itemIndex = parseInt( state.params.index, 10);
   const item = state.items[itemIndex];

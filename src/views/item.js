@@ -1,6 +1,6 @@
-import html from 'choo/html';
+var html = require('choo/html')
 
-export default (item, itemIndex, send) => html `
+module.exports = (item, itemIndex, send) => html `
   <li
     class="${ item.done ? 'done' : '' }">
     <input
