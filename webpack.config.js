@@ -1,5 +1,15 @@
 const path = require('path');
 
+const babelLoaderConfig = process.env['NODE_ENV'] === 'production' ?
+  [{
+    test: /\.js$/,
+    exclude: /node_modules/,
+    loader: 'babel',
+    query: {
+      presets: ['stage-0']
+    }
+  }] : []
+
 module.exports = {
   entry: path.join(__dirname, 'src/index.js'),
   output: {
@@ -7,15 +17,6 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['stage-0']
-        }
-      }
-    ]
+    loaders: [].concat(babelLoaderConfig)
   }
 };
